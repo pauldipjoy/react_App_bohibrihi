@@ -167,11 +167,16 @@ const style = {
 // state & after change state end //
 
 
-// Component List-
+// Component List start
+
 const bookState = this.state.books;
+
+//const addbooks = bookState.map(function(book){
+
 
 const addbooks = bookState.map( book => {
 
+  
 //console.log(book);
 //console.log(book.bookName);
 //console.log(book.writer);
@@ -193,6 +198,10 @@ writer = {book.writer}
 
 console.log(addbooks);
 
+
+
+
+// Component List end
 
 
 
@@ -271,7 +280,17 @@ console.log(addbooks);
   
 />  */}
 
+
+
+
+{/* component list */}
+
 {addbooks}
+
+{/* component list end */}
+
+
+
 
 </div>
 
