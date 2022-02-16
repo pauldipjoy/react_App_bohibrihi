@@ -11,9 +11,11 @@ const Book = (props)=> {
             
 
          {/* pass method props change state with event    */}
-        <h3  onClick ={props.change} >  BOOK: {props.bookName}  </h3>
+        {/* <h3  onClick ={props.change} >  BOOK: {props.bookName}  </h3> */}
 
-        <h4> WRITER: {props.writer }</h4>
+        <h4  onClick ={props.delete} >  BOOK: {props.bookName}  </h4>
+
+        <h5> WRITER: {props.writer }</h5>
 
         <input type = "text" onChange = {props.inputName} value = {props.bookName} />
 
