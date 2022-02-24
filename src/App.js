@@ -405,6 +405,7 @@ import './App.css';
 import Book from './components/Book';
 
 class App extends Component {
+
   state = {
     books: [
       { id: 1, bookName: "1984", writer: "George Orwell" },
@@ -419,9 +420,9 @@ class App extends Component {
     }
     console.log(book);
     
-    book.bookName = event.target.value;
-    const books = [...this.state.books];
-    books[index] = book;
+     book.bookName = event.target.value;
+     const books = [...this.state.books];
+     books[index] = book;
 
     this.setState({ books: books });
   }
@@ -430,11 +431,15 @@ class App extends Component {
     //const books = this.state.books.slice();
     //const books = this.state.books.map(item => item);
     const books = [...this.state.books];
-    books.splice(index, 1);
-    this.setState({
-      books: books
+    books.splice( index, 1 );
+    this.setState( {
+      books : books
+
     });
   };
+
+
+
 
   render() {
     const style = {
@@ -446,14 +451,17 @@ class App extends Component {
 
     //const booksState = this.state.books;
 
-    const books = this.state.books.map((book, index) => {
+    const books = this.state.books.map(( book, index  ) => {
+      
       return (
         <Book
-          bookName={book.bookName}
-          writer={book.writer}
-          delete={() => this.deleteBookState(index)}
-          key={book.id}
-          inputName={(event) => this.changeWithInputState(event, index)}
+          bookName= { book.bookName }
+          writer= { book.writer }
+          delete={ () => this.deleteBookState(index) }
+          key={ book.id }
+
+          inputName={ (event) => this.changeWithInputState(event, index)}
+
         />
       );
     });
@@ -462,12 +470,21 @@ class App extends Component {
     console.log(books);
 
     return (
+
+
       <div className="App">
+
+
         <h1 style={style}>Book List</h1>
-        {books}
+
+
+        { books }
+
+
       </div>
     );
   }
+
 }
 
 export default App;
