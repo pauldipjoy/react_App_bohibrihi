@@ -425,10 +425,10 @@ class App extends Component {
     }
     console.log(book);
     
-     book.bookName = event.target.value;
+    book.bookName = event.target.value;
      
-     const books = [...this.state.books];
-     books[index] = book; //
+    const books = [...this.state.books];
+    books[index] = book; 
 
     this.setState({ 
 
@@ -454,6 +454,8 @@ class App extends Component {
   };
 
 
+
+// conditional operator
   toggleBooks = () => {
 
     this.setState({
@@ -478,20 +480,30 @@ class App extends Component {
 
     //const booksState = this.state.books;
 
-    const books = this.state.books.map(( book, index  ) => {
+    let books = null;
+    if(this.state.showBooks){
+
+
+       books = this.state.books.map(( book, index  ) => {
       
-      return (
-        <Book
-          bookName= { book.bookName }
-          writer= { book.writer }
-          delete={ () => this.deleteBookState(index) }
-          key={ book.id }
+        return (
+          <Book
+            bookName= { book.bookName }
+            writer= { book.writer }
+            delete={ () => this.deleteBookState(index) }
+            key={ book.id }
+  
+            inputName={ (event) => this.changeWithInputState(event, index)}
+  
+          />
+        );
+      });
 
-          inputName={ (event) => this.changeWithInputState(event, index)}
 
-        />
-      );
-    });
+
+    }
+
+   
 
     //console.log(booksState);
     console.log(books);
@@ -509,10 +521,10 @@ class App extends Component {
       <button onClick={this.toggleBooks}> Toggle Books </button>
 
 
-        {/* { books } */}
+        { books }
         
         {/* Conditional operater use this books */}
-        {this.state.showBooks ? books : null}
+        {/* {this.state.showBooks ? books : null } */}
 
 
 
