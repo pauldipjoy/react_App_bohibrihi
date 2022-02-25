@@ -412,23 +412,38 @@ class App extends Component {
       { id: 2, bookName: "The Da Vinci Code", writer: "Dan Brown" },
       { id: 3, bookName: "The Alchemist", writer: "Paulo Coelho" }
     ],
+
+    showBooks: true
+
   }
 
+
   changeWithInputState = (event, index) => {
+
     const book = {
       ...this.state.books[index]
     }
     console.log(book);
     
      book.bookName = event.target.value;
+     
      const books = [...this.state.books];
-     books[index] = book;
+     books[index] = book; //
 
-    this.setState({ books: books });
+    this.setState({ 
+
+      books: books
+    
+    });
+
   }
 
+
+
+
+
   deleteBookState = index => {
-    //const books = this.state.books.slice();
+    //const books = this.state.books.slice();1
     //const books = this.state.books.map(item => item);
     const books = [...this.state.books];
     books.splice( index, 1 );
@@ -437,6 +452,18 @@ class App extends Component {
 
     });
   };
+
+
+  toggleBooks = () => {
+
+    this.setState({
+
+    showBooks : ! this.state.showBooks
+
+     });
+
+
+  }
 
 
 
@@ -478,7 +505,15 @@ class App extends Component {
         <h1 style={style}>Book List</h1>
 
 
-        { books }
+{/* for conditional operator button */}
+      <button onClick={this.toggleBooks}> Toggle Books </button>
+
+
+        {/* { books } */}
+        
+        {/* Conditional operater use this books */}
+        {this.state.showBooks ? books : null}
+
 
 
       </div>
