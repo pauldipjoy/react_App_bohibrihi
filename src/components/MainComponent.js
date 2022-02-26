@@ -1,68 +1,66 @@
 import React, { Component } from 'react'
+import bookList from '../assets/Bookdata.js'
 import Book from './Book.js'
 
 class MainComponent extends Component {
 
     state = {
-        books: [
-          { id: 1, bookName: "1984", writer: "George Orwell" },
-          { id: 2, bookName: "The Da Vinci Code", writer: "Dan Brown" },
-          { id: 3, bookName: "The Alchemist", writer: "Paulo Coelho" }
-        ],
+
+    books: bookList, 
+        
+    showBooks: true
     
-        showBooks: true
-    
-      }
+    }
     
     
-      changeWithInputState = (event, index) => {
+    changeWithInputState = (event, index) => {
     
         const book = {
-          ...this.state.books[index]
+        ...this.state.books[index]
         }
         console.log(book);
         
         book.bookName = event.target.value;
-         
+
         const books = [...this.state.books];
         books[index] = book; 
     
         this.setState({ 
     
-          books: books
+        books: books
         
         });
     
-      }
+}
     
     
     
     
     
-      deleteBookState = index => {
+    deleteBookState = index => {
         //const books = this.state.books.slice();1
         //const books = this.state.books.map(item => item);
         const books = [...this.state.books];
         books.splice( index, 1 );
         this.setState( {
-          books : books
+        books : books
     
         });
-      };
+    };
     
     
     
     // conditional operator
-      toggleBooks = () => {
+    toggleBooks = () => {
     
         this.setState({
     
         showBooks : ! this.state.showBooks
     
-         });
+        });
     
     
-      }
+    }
     
     
     
@@ -78,10 +76,11 @@ class MainComponent extends Component {
         //const booksState = this.state.books;
     
         let books = null;
+
         if(this.state.showBooks){
     
     
-           books = this.state.books.map(( book, index  ) => {
+        books = this.state.books.map(( book, index  ) => {
           
             return (
               <Book
@@ -135,4 +134,4 @@ class MainComponent extends Component {
 
 
 
-export default  MainComponent
+export default  MainComponent;
