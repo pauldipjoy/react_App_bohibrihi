@@ -29,6 +29,33 @@ class BookList extends Component {
     }
 
 
+    UNSAFE_componentWillReceiveProps(nextProps){
+
+        console.log( "Update Booklist componentWillReceiveProps" , nextProps );
+    }
+
+
+    shouldComponentUpdate(nextProps , nextState){
+
+        console.log("Update Booklist shouldComponentUpdate" , nextProps , nextState);
+        return true;
+    }
+
+
+    UNSAFE_componentWillUpdate(nextProps , nextState){
+
+        console.log("Update BookList  componentWillUpdate");
+    }
+
+
+    componentDidUpdate(){
+
+        console.log("Update BookList componentDidUpdate ");
+
+
+    }
+
+
 
 
     render() {
@@ -52,7 +79,7 @@ class BookList extends Component {
         
                 );
         
-             })
+            })
         
         
         );
