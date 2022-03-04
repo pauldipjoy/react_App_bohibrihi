@@ -4,13 +4,21 @@ import BookList from './lists/BookList.js';
 
 class MainComponent extends Component {
 
-    state = {
+  constructor(props){
+    super(props);
 
-    books: bookList, 
-        
-    showBooks: true
+    this.state = {
+
+      books: bookList, 
+          
+      showBooks: true
+      
+      }
+
+      console.log("MainComponent constructor!");
+  }
+
     
-    }
     
     
     changeWithInputState = (event, index) => {
@@ -61,11 +69,30 @@ class MainComponent extends Component {
     
     
     }
+
+
+
+    UNSAFE_componentWillMount(){
+
+      console.log("MainComponent componentWillMount!");
+    }
+
+
+    componentDidMount(){
+
+      console.log("MainComponent componentDidMount!");
+
+    }
     
     
     
     
       render() {
+
+    console.log("MainComponent render!");
+
+
+
         const style = {
           border: "1px solid red",
           borderRadius: "5px",
