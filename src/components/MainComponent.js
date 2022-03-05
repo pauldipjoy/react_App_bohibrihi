@@ -72,22 +72,51 @@ class MainComponent extends Component {
 
 
 
-    UNSAFE_componentWillMount(){
+UNSAFE_componentWillMount(){
 
       console.log("MainComponent componentWillMount!");
     }
 
 
-    componentDidMount(){
+componentDidMount(){
 
       console.log("MainComponent componentDidMount!");
 
     }
+
+    
+
+
+shouldComponentUpdate(nextProps , nextState) {
+
+    console.log("Update MainComponent shouldComponentUpdate " , nextProps , nextState);
+
+    return true;
+    
+    }
+
+
+UNSAFE_componentWillUpdate(nextProps , nextState){
+
+  console.log("Update MainComponent componentWillUpdate");
+
+  }
+
+
+  componentDidUpdate() {
+
+    console.log( "Update MainComponent componentDidUpdate" );
+
+
+  }
+
+
+
     
     
     
     
-      render() {
+    render() {
 
     console.log("MainComponent render!");
 
