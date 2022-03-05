@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import bookList from '../assets/Bookdata.js';
 import BookList from './lists/BookList.js';
+import NewBook from './representational/NewBook.js';
 
 class MainComponent extends Component {
 
@@ -15,7 +16,7 @@ class MainComponent extends Component {
       
       }
 
-      console.log("MainComponent constructor!");
+      // console.log("MainComponent constructor!");
   }
 
     
@@ -78,25 +79,25 @@ class MainComponent extends Component {
 //     }
 
 
-componentDidMount(){
+// componentDidMount(){
 
-      console.log("MainComponent componentDidMount!");
+//       console.log("MainComponent componentDidMount!");
 
-    }
-
-
+//     }
 
 
 
+
+
+
+
+// shouldComponentUpdate(nextProps , nextState) {
+
+//     console.log("Update MainComponent shouldComponentUpdate " , nextProps , nextState);
+
+//     return true;
     
-
-shouldComponentUpdate(nextProps , nextState) {
-
-    console.log("Update MainComponent shouldComponentUpdate " , nextProps , nextState);
-
-    return true;
-    
-    }
+//     }
 
 // UNSAFE_componentWillUpdate(nextProps , nextState){
 
@@ -105,27 +106,31 @@ shouldComponentUpdate(nextProps , nextState) {
 //   }
 
 
-componentDidUpdate() {
+// componentDidUpdate() {
 
-  console.log( "Update MainComponent componentDidUpdate" );
-
-
-  }
+//   console.log( "Update MainComponent componentDidUpdate" );
 
 
-
-static getDerivedStateFromProps(nextProps , prevState) {
-
-  console.log("MainComponent getDerivedStateFromProps" , nextProps , prevState);
-  return prevState;
-} 
+//   }
 
 
-getSnapshotBeforeUpdate(){
 
-  console.log("U MainComponent getSnapshotBeforeUpdate ");
-  // return true;
-}
+// static getDerivedStateFromProps(nextProps , prevState) {
+
+//   console.log("MainComponent getDerivedStateFromProps" , nextProps , prevState);
+//   return prevState;
+
+// } 
+
+
+
+// getSnapshotBeforeUpdate(){
+
+// console.log("U MainComponent getSnapshotBeforeUpdate");
+
+//   // return true;
+
+// }
 
 
 
@@ -134,9 +139,9 @@ getSnapshotBeforeUpdate(){
     
     
     
-render() {
+render(){
 
-  console.log("MainComponent render!");
+  // console.log("MainComponent render!");
 
 
 
@@ -154,7 +159,7 @@ render() {
         if(this.state.showBooks){
     
     
-        books = <BookList books = {this.state.books} 
+        books  = <BookList books = {this.state.books} 
 
         changeWithInputState = {this.changeWithInputState}
         
@@ -175,6 +180,21 @@ render() {
     
     
           <div className="App">
+
+
+           {/* add menu */}
+    <div className="nav-bar">
+
+          <ul>
+
+                <li><a href="/"> Home </a> </li>
+                <li><a href="/new"> New Book </a> </li>
+          </ul>
+          
+    </div>
+      
+
+
     
     
             <h1 style={style}>Book List</h1>
@@ -188,6 +208,9 @@ render() {
             
             {/* Conditional operater use this books */}
             {/* {this.state.showBooks ? books : null } */}
+
+
+            <NewBook  /> 
     
     
     

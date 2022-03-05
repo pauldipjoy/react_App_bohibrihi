@@ -11,7 +11,7 @@ class BookList extends Component {
     constructor(props){
 
         super(props);
-        console.log("BookList constructor!");
+        // console.log("BookList constructor!");
         
     }
 
@@ -23,11 +23,11 @@ class BookList extends Component {
 //     }
 
 
-componentDidMount(){
+// componentDidMount(){
 
-    console.log("BookList componentDidMount!");
+//     console.log("BookList componentDidMount!");
 
-    }
+//     }
 
 
 
@@ -41,11 +41,14 @@ componentDidMount(){
 //     }
 
 
-shouldComponentUpdate(nextProps , nextState){
+// shouldComponentUpdate(nextProps , nextState){
 
-    console.log("Update Booklist shouldComponentUpdate" , nextProps , nextState);
-    return true;
-    }
+//     console.log("Update Booklist shouldComponentUpdate" , nextProps , nextState);
+
+//     return true;
+
+
+//     }
 
 
 // UNSAFE_componentWillUpdate(nextProps , nextState){
@@ -55,26 +58,28 @@ shouldComponentUpdate(nextProps , nextState){
 //     }
 
 
-componentDidUpdate(){
+// componentDidUpdate(){
 
-    console.log("Update BookList componentDidUpdate ");
-
-
-    }
+//     console.log("Update BookList componentDidUpdate ");
 
 
-    static getDerivedStateFromProps(nextProps , prevState) {
-
-        console.log("BookList getDerivedStateFromProps" , nextProps , prevState);
-        return prevState;
-    } 
+//     }
 
 
-    getSnapshotBeforeUpdate(){
+    // static getDerivedStateFromProps(nextProps , prevState) {
 
-        console.log("U BookList getSnapshotBeforeUpdate ");
-        return true;
-    }
+    //     console.log("BookList getDerivedStateFromProps" , nextProps , prevState);
+    //     return prevState;
+    // } 
+
+
+    // getSnapshotBeforeUpdate(){
+
+    //     console.log("U BookList getSnapshotBeforeUpdate ");
+
+    //     // return true;
+
+    // }
 
 
 
@@ -82,7 +87,7 @@ componentDidUpdate(){
 
     render() {
 
-        console.log("BookList render!");
+        // console.log("BookList render!");
 
         return (
 
