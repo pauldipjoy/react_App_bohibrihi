@@ -16,45 +16,66 @@ class BookList extends Component {
     }
 
 
-    UNSAFE_componentWillMount(){
+// UNSAFE_componentWillMount(){
 
-        console.log("BookList componentWillMount!");
+//     console.log("BookList componentWillMount!");
+
+//     }
+
+
+componentDidMount(){
+
+    console.log("BookList componentDidMount!");
+
     }
 
 
-    componentDidMount(){
 
-        console.log("BookList componentDidMount!");
-
-    }
     
 
 
-    UNSAFE_componentWillReceiveProps(nextProps){
+// UNSAFE_componentWillReceiveProps(nextProps){
 
-        console.log( "Update Booklist componentWillReceiveProps" , nextProps );
+//     console.log( "Update Booklist componentWillReceiveProps" , nextProps );
+
+//     }
+
+
+shouldComponentUpdate(nextProps , nextState){
+
+    console.log("Update Booklist shouldComponentUpdate" , nextProps , nextState);
+    return true;
     }
 
 
-    shouldComponentUpdate(nextProps , nextState){
+// UNSAFE_componentWillUpdate(nextProps , nextState){
 
-        console.log("Update Booklist shouldComponentUpdate" , nextProps , nextState);
+//     console.log("Update BookList  componentWillUpdate");
+
+//     }
+
+
+componentDidUpdate(){
+
+    console.log("Update BookList componentDidUpdate ");
+
+
+    }
+
+
+    static getDerivedStateFromProps(nextProps , prevState) {
+
+        console.log("BookList getDerivedStateFromProps" , nextProps , prevState);
+        return prevState;
+    } 
+
+
+    getSnapshotBeforeUpdate(){
+
+        console.log("U BookList getSnapshotBeforeUpdate ");
         return true;
     }
 
-
-    UNSAFE_componentWillUpdate(nextProps , nextState){
-
-        console.log("Update BookList  componentWillUpdate");
-    }
-
-
-    componentDidUpdate(){
-
-        console.log("Update BookList componentDidUpdate ");
-
-
-    }
 
 
 

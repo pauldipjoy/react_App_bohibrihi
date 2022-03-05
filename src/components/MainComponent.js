@@ -72,10 +72,10 @@ class MainComponent extends Component {
 
 
 
-UNSAFE_componentWillMount(){
+// UNSAFE_componentWillMount(){
 
-      console.log("MainComponent componentWillMount!");
-    }
+//       console.log("MainComponent componentWillMount!");
+//     }
 
 
 componentDidMount(){
@@ -84,8 +84,11 @@ componentDidMount(){
 
     }
 
-    
 
+
+
+
+    
 
 shouldComponentUpdate(nextProps , nextState) {
 
@@ -95,20 +98,35 @@ shouldComponentUpdate(nextProps , nextState) {
     
     }
 
+// UNSAFE_componentWillUpdate(nextProps , nextState){
 
-UNSAFE_componentWillUpdate(nextProps , nextState){
+//   console.log("Update MainComponent componentWillUpdate");
 
-  console.log("Update MainComponent componentWillUpdate");
+//   }
+
+
+componentDidUpdate() {
+
+  console.log( "Update MainComponent componentDidUpdate" );
+
 
   }
 
 
-  componentDidUpdate() {
 
-    console.log( "Update MainComponent componentDidUpdate" );
+static getDerivedStateFromProps(nextProps , prevState) {
+
+  console.log("MainComponent getDerivedStateFromProps" , nextProps , prevState);
+  return prevState;
+} 
 
 
-  }
+getSnapshotBeforeUpdate(){
+
+  console.log("U MainComponent getSnapshotBeforeUpdate ");
+  // return true;
+}
+
 
 
 
@@ -116,9 +134,9 @@ UNSAFE_componentWillUpdate(nextProps , nextState){
     
     
     
-    render() {
+render() {
 
-    console.log("MainComponent render!");
+  console.log("MainComponent render!");
 
 
 
