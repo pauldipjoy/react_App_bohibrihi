@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import bookList from '../assets/Bookdata.js';
 import BookList from './lists/BookList.js';
-import NewBook from './representational/NewBook.js';
+
 
 class MainComponent extends Component {
 
@@ -10,9 +11,9 @@ class MainComponent extends Component {
 
     this.state = {
 
-      books: bookList, 
+      books: bookList
           
-      showBooks: true
+      // showBooks: true
       
       }
 
@@ -47,29 +48,31 @@ class MainComponent extends Component {
     
     
     deleteBookState = index => {
+
         //const books = this.state.books.slice();1
         //const books = this.state.books.map(item => item);
         const books = [...this.state.books];
-        books.splice( index, 2 );
+        books.splice( index, 1 );
         this.setState( {
         books : books
     
         });
+
     };
     
     
     
     // conditional operator
-    toggleBooks = () => {
+    // toggleBooks = () => {
     
-        this.setState({
+    //     this.setState({
     
-        showBooks : ! this.state.showBooks
+    //     showBooks : ! this.state.showBooks
     
-        });
+    //     });
     
     
-    }
+    // }
 
 
 
@@ -96,7 +99,7 @@ class MainComponent extends Component {
 //     console.log("Update MainComponent shouldComponentUpdate " , nextProps , nextState);
 
 //     return true;
-    
+
 //     }
 
 // UNSAFE_componentWillUpdate(nextProps , nextState){
@@ -135,93 +138,122 @@ class MainComponent extends Component {
 
 
 
-    
-    
-    
-    
-render(){
+render() {
 
   // console.log("MainComponent render!");
 
 
 
-        const style = {
-          border: "1px solid red",
-          borderRadius: "5px",
-          backgroundColor: "black",
-          color: "white",
-        };
+        // const style = {
+        //   border: "1px solid red",
+        //   borderRadius: "5px",
+        //   backgroundColor: "black",
+        //   color: "white",
+        // };
+
     
         //const booksState = this.state.books;
-    
-        let books = null;
 
-        if(this.state.showBooks){
     
-    
-        books  = <BookList books = {this.state.books} 
+        // let books = null;
 
-        changeWithInputState = {this.changeWithInputState}
+        // if(this.state.showBooks){
+    
+    const books  = < BookList 
+      
+        books = { this.state.books } 
+
+        changeWithInputState = { this.changeWithInputState }
         
-        deleteBookState = {this.deleteBookState}
+        deleteBookState = { this.deleteBookState }
         
     />
     
     
     
-    }
+    // }
     
-       
+
     
         //console.log(booksState);
-        console.log(books);
+        // console.log(books);
+
     
-        return (
+    return (
+
     
-    
-          <div className="App">
+
+<div className="App">
 
 
-           {/* add menu */}
-    <div className="nav-bar">
+{/* add menu */}
+
+        <div className="nav-bar">
 
           <ul>
 
-                <li><a href="/"> Home </a> </li>
-                <li><a href="/new"> New Book </a> </li>
-          </ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/new-book">New Book</a></li>
           
-    </div>
+          </ul>
+      
+    
+      </div>
+
+  
+
+
+
+
+
+
+
+{/* <h1 style={style}>Book List</h1> */}
+
+
+{/* for conditional operator button */}
+  {/* <button onClick={this.toggleBooks}> Toggle Books </button> */}
+
+
+  {/* { books } */}
+      
+{/* Conditional operater use this books */}
+ {/* {this.state.showBooks ? books : null } */}
+
+
+ {/* <NewBook /> */}
+
+
+      <Route  path= "/"  exact 
+
+      render= { () => <h1> Home </h1> } 
+
+      />
+      
+      <Route  path= "/new-book" exact 
+
+      render= { ()  => <h1> New Book </h1>}
+      
+      />
+
+  
       
 
-
-    
-    
-            <h1 style={style}>Book List</h1>
-    
-    
-    {/* for conditional operator button */}
-          <button onClick={this.toggleBooks}> Toggle Books </button>
-    
-    
-            { books }
-            
-            {/* Conditional operater use this books */}
-            {/* {this.state.showBooks ? books : null } */}
+  </div>
 
 
-            <NewBook  /> 
-    
-    
-    
-          </div>
-        );
-      }
+
+    );
 
 
- 
+
 }
 
 
+}
 
 export default  MainComponent;
+
+
+
+

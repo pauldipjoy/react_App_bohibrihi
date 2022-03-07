@@ -8,10 +8,11 @@ import Book from '../representational/Book.js';
 class BookList extends Component {
 
 
-    constructor(props){
+    constructor(props) {
 
         super(props);
         // console.log("BookList constructor!");
+        
         
     }
 

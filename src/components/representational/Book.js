@@ -4,7 +4,7 @@ import '../../stylesheets/Book.css';
 
 const Book = (props) => {
 
-    console.log("i am from book");
+    // console.log("i am from book");
 
     return (
 
