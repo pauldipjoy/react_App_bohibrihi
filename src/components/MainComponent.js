@@ -227,15 +227,18 @@ render() {
 
       <Route  path = "/"  exact 
 
-      component= {()  => books } 
+      render = {()  => books } 
 
       />
       
-      <Route  path = "/new-book" exact 
+      <Route path = "/new-book" exact 
 
       component = { NewBook } 
-      
+
+
       />
+      
+      
 
   
       

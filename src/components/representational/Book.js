@@ -1,10 +1,15 @@
 import React from "react";
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 import '../../stylesheets/Book.css';
 
 
 const Book = (props) => {
 
+
+
     // console.log("i am from book");
+
+    console.log(props);
 
     return (
 
@@ -30,4 +35,4 @@ const Book = (props) => {
 
 }
 
-export default Book;
+export default withRouter(Book);
