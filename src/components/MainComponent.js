@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import bookList from '../assets/Bookdata.js';
 import BookList from './lists/BookList.js';
+import NewBook from "./representational/NewBook";
 
 
 class MainComponent extends Component {
@@ -188,17 +189,17 @@ render() {
 
 {/* add menu */}
 
-        <div className="nav-bar">
+        <nav className="nav-bar">
 
           <ul>
 
-            <li><a href="/">Home</a></li>
-            <li><a href="/new-book">New Book</a></li>
+            <li><NavLink to = "/" > Home </NavLink></li>
+            <li><NavLink to = "/new-book">New Book</NavLink></li>
           
           </ul>
       
     
-      </div>
+      </nav>
 
   
 
@@ -224,15 +225,15 @@ render() {
  {/* <NewBook /> */}
 
 
-      <Route  path= "/"  exact 
+      <Route  path = "/"  exact 
 
-      render= { () => <h1> Home </h1> } 
+      component= {()  => books } 
 
       />
       
-      <Route  path= "/new-book" exact 
+      <Route  path = "/new-book" exact 
 
-      render= { ()  => <h1> New Book </h1>}
+      component = { NewBook } 
       
       />
 
