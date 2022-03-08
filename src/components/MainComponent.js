@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import bookList from '../assets/Bookdata.js';
 import BookList from './lists/BookList.js';
-import NewBook from "./representational/NewBook";
+import BookDetail from './representational/BookDetails.js';
+import NewBook from "./representational/NewBook.js";
 
 
 class MainComponent extends Component {
@@ -12,9 +13,11 @@ class MainComponent extends Component {
 
     this.state = {
 
-      books: bookList
+    books: bookList,
           
       // showBooks: true
+
+    selectedBook : null
       
       }
 
@@ -24,42 +27,42 @@ class MainComponent extends Component {
     
     
     
-    changeWithInputState = (event, index) => {
+//     changeWithInputState = (event, index) => {
     
-        const book = {
-        ...this.state.books[index]
-        }
-        console.log(book);
+//         const book = {
+//         ...this.state.books[index]
+//         }
+//         console.log(book);
         
-        book.bookName = event.target.value;
+//         book.bookName = event.target.value;
 
-        const books = [...this.state.books];
-        books[index] = book; 
+//         const books = [...this.state.books];
+//         books[index] = book; 
     
-        this.setState({ 
+//         this.setState({ 
     
-        books: books
+//         books: books
         
-        });
+//         });
     
-}
-    
-    
+// }
     
     
     
-    deleteBookState = index => {
+    
+    
+    // deleteBookState = index => {
 
-        //const books = this.state.books.slice();1
-        //const books = this.state.books.map(item => item);
-        const books = [...this.state.books];
-        books.splice( index, 1 );
-        this.setState( {
-        books : books
+    //     //const books = this.state.books.slice();1
+    //     //const books = this.state.books.map(item => item);
+    //     const books = [...this.state.books];
+    //     books.splice( index, 1 );
+    //     this.setState( {
+    //     books : books
     
-        });
+    //     });
 
-    };
+    // };
     
     
     
@@ -138,6 +141,20 @@ class MainComponent extends Component {
 
 
 
+selectedBookHandler = bookId => {
+
+  const book = this.state.books.filter(book =>
+    book.id === bookId )[0];
+
+  this.setState({ 
+    
+    selectedBook : book
+  
+  })
+}
+
+
+
 
 render() {
 
@@ -164,9 +181,11 @@ render() {
       
         books = { this.state.books } 
 
-        changeWithInputState = { this.changeWithInputState }
+        // changeWithInputState = { this.changeWithInputState }
         
-        deleteBookState = { this.deleteBookState }
+        // deleteBookState = { this.deleteBookState }
+
+        selectedBookHandler = {this.selectedBookHandler}
         
     />
     
@@ -237,13 +256,10 @@ render() {
 
 
       />
-      
-      
 
-  
+      <BookDetail  book ={this.state.selectedBook}/>
       
-
-  </div>
+</div>
 
 
 

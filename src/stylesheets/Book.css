@@ -6,3 +6,8 @@
   border-radius: 5px;
   box-shadow: 5px 5px 5px 5px gray;
 }
+
+.Book:hover {
+  color: brown;
+  cursor: pointer;
+}
