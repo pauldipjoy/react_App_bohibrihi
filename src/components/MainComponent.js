@@ -257,7 +257,8 @@ render() {
 
       />
 
-      <BookDetail  book ={this.state.selectedBook}/>
+      <Route path="/:id"  render= { () => <BookDetail  book ={this.state.selectedBook} /> }/>
+      
       
 </div>
 

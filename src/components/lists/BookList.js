@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Book from '../representational/Book.js';
 
 
@@ -9,15 +9,7 @@ import Book from '../representational/Book.js';
 class BookList extends Component {
 
 
-    constructor(props) {
-
-        super(props);
-        // console.log("BookList constructor!");
-        
-        
-    }
-
-
+    
 // UNSAFE_componentWillMount(){
 
 //     console.log("BookList componentWillMount!");
@@ -99,16 +91,21 @@ class BookList extends Component {
         
                 return (
         
+                <Link to = { "/" + book.id }  key={ book.id }  style = {{ textDecoration : "none" , color : "black"}}  >
+
                 <Book
                     bookName= { book.bookName }
                     writer= { book.writer }
                     // delete={ () =>this.props.deleteBookState(index) }
-                    key={ book.id }
+                
         
                     // inputName= { (event) => this.props.changeWithInputState(event, index)}
 
                     selectedBookHandler = {() => this.props.selectedBookHandler(book.id)}
                 />
+                
+                
+                </Link>
         
                 );
         
