@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 import bookList from '../assets/Bookdata.js';
 import BookList from './lists/BookList.js';
 import BookDetail from './representational/BookDetails.js';
@@ -243,21 +243,19 @@ render() {
 
  {/* <NewBook /> */}
 
-
-      <Route  path = "/"  exact 
-
-      render = {()  => books } 
-
-      />
-      
-      <Route path = "/new-book" exact 
-
-      component = { NewBook } 
+<Switch>
 
 
-      />
+      <Route  path = "/"  exact render = {()  => books } />
+
+      <Route path = "/new-book" exact component = { NewBook } />
 
       <Route path="/:id"  render= { () => <BookDetail  book ={this.state.selectedBook} /> }/>
+
+
+</Switch>
+
+
       
       
 </div>
