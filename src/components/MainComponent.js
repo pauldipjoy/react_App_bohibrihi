@@ -212,8 +212,8 @@ render() {
 
           <ul>
 
-            <li><NavLink to = "/" > Home </NavLink></li>
-            <li><NavLink to = "/new-book">New Book</NavLink></li>
+            <li><NavLink to = "/"  > Home </NavLink></li>
+            <li><NavLink to = "/new-book" >New Book</NavLink></li>
           
           </ul>
       
@@ -248,11 +248,12 @@ render() {
 <Switch>
 
 
-     <Route  path = "/books"  exact render = {()  => books } />
+    <Route  path = "/books"  exact  render = {()  => books } />
 
-    <Route path = "/new-book" exact component = { NewBook } />
+    <Route path = "/new-book" exact  component = { NewBook } />
 
     <Route path="/:id"  render= {() => <BookDetail  book ={this.state.selectedBook} /> }/>
+
 
     <Redirect from= "/" to = "/books" />
 

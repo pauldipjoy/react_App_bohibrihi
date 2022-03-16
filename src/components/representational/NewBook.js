@@ -1,26 +1,82 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 
 
-const NewBook = props=> {
+class NewBook extends Component {
 
-    console.log(props);
+    constructor(props){
+        super(props);
+        this.state = {
 
-return(
-
-<div>
-
-    <h1> New Book Entry </h1>
-
-
-</div>
-
+        bookName : "",
+        writer : "",
+        description : ""
+        }
+    }
 
 
 
-);
+
+    handleInputChange = event => {
+
+        // console.log(event.target);
+
+    const name = event.target.name;
+    const value = event.target.value;
+
+    // console.log(name , value);
+
+    this.setState({
+
+    [name] : value
+
+    })
 
 
+}
+
+componentDidUpdate(){
+
+    console.log(this.state);
+}
+
+
+
+
+
+render() {
+
+    return(
+
+        <div>
+        
+            <h1> New Book Entry </h1>
+        
+            <form>
+                <label> Book Name:</label>
+                <br/>
+                <input type= "text" name="bookName" value={this.state.bookName}   onChange = { event => this.handleInputChange(event)}/>
+                <br/>
+                <label> Writer:</label>
+                <br/>
+                <input type= "text" name="writer" value={this.state.writer} onChange = { event => this.handleInputChange(event)}/>
+                <br/>
+                <label> Description:</label>
+                <br/>
+                <textarea  name="description"  value={this.state.description} onChange = { event => this.handleInputChange(event)} />
+                <br/>
+                <input type= "submit" value= "Submit"/>
+            </form>
+        
+        
+        </div>
+        
+        
+        
+        
+        );
+
+}
 
 }
 
